@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -91,11 +92,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = passcmd } },
-	{ MODKEY,                       XK_Left,   spawn,          SHCMD("media-controls BD") },
-	{ MODKEY,                       XK_Right,  spawn,          SHCMD("media-controls BU") },
-	{ MODKEY,                       XK_Up,     spawn,          SHCMD("media-controls AU") },
-	{ MODKEY,                       XK_Down,   spawn,          SHCMD("media-controls AD") },
-	{ MODKEY|ShiftMas,              XK_Down,   spawn,          SHCMD("media-controls AM") },
+	{ 0,        XF86XK_MonBrightnessDown,      spawn,          SHCMD("media-controls BD") },
+	{ 0,          XF86XK_MonBrightnessUp,      spawn,          SHCMD("media-controls BU") },
+	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("media-controls AU") },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,          SHCMD("media-controls AD") },
+	{ 0,                XF86XK_AudioMute,      spawn,          SHCMD("media-controls AM") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
